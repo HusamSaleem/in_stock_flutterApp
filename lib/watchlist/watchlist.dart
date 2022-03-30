@@ -26,6 +26,12 @@ class _Watchlist extends State<Watchlist> {
         Provider.of<UserProvider>(context, listen: false);
     watchlistProvider.getWatchlist(userProvider.user!.uniqueIdentifier);
   }
+  String? _itemId;
+  String _websiteDropdownValue = 'Amazon'; // Default website
+  List<String> _websiteNames = ['Amazon'];
+
+  final _formKey = GlobalKey<FormState>();
+  late AnimationController loadingIconController;
 
   // Amazon: https://amazon.com/dp/itemID
   // Returns -1 if invalid
@@ -42,24 +48,16 @@ class _Watchlist extends State<Watchlist> {
 
     dpIndex += 3;
     int nextSlashIndex = amazonLink.indexOf('/', dpIndex);
-
     if (nextSlashIndex == -1) {
       return (amazonLink.substring(dpIndex).length == 10)
           ? amazonLink.substring(dpIndex)
           : "-1";
     } else {
-      return (amazonLink.substring(dpIndex, nextSlashIndex + 1).length == 10)
-          ? amazonLink.substring(dpIndex, nextSlashIndex + 1)
+      return (amazonLink.substring(dpIndex, nextSlashIndex).length == 10)
+          ? amazonLink.substring(dpIndex, nextSlashIndex)
           : "-1";
     }
   }
-
-  String? _itemId;
-  String _websiteDropdownValue = 'Amazon'; // Default website
-  List<String> _websiteNames = ['Amazon'];
-
-  final _formKey = GlobalKey<FormState>();
-  late AnimationController loadingIconController;
 
   @override
   Widget build(BuildContext context) {
@@ -137,12 +135,12 @@ class _Watchlist extends State<Watchlist> {
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     TextFormField(
-                      onChanged: (value) => _itemId = value,
+                      onChanged: (value) => _itemId = parseAmazonLink(value),
                       decoration: const InputDecoration(
                           labelText: "Website Address or ID"),
-                      validator: (websiteLink) {
+                      validator: (value) {
                         if (_websiteDropdownValue == 'Amazon') {
-                          if (parseAmazonLink(websiteLink!) == "-1") {
+                          if (parseAmazonLink(value!) == "-1") {
                             return 'Invalid Amazon Link';
                           }
                         }
