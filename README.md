@@ -27,12 +27,14 @@
 - View the server repo here: https://github.com/HusamSaleem/In-stock-tracker-server-new
 
 # Getting Started
+
+# Prerequisites
 - Download [Flutter](https://docs.flutter.dev/get-started/install)
-- [Android Studio](https://developer.android.com/studio) is recommended
+- [Android Studio](https://developer.android.com/studio) >recommended
+- 
 - Clone this repo
-- To build for Android, here is a good tutorial on doing so
-- To build for Web, just type in the terminal 
-```flutter build web```
+- To build for Android, here is a better [tutorial](https://docs.flutter.dev/deployment/android) than I can ever make here
+- To build for Web, just type in the terminal ```flutter build web```
 
 
 # TODO
