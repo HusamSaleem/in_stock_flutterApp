@@ -3,6 +3,9 @@
 # View this application on the web!
 - https://husamsaleem.github.io/in-stock-flutterweb/#/login
 
+# Server Repo
+- View the documented server api repo here: https://github.com/HusamSaleem/In-stock-tracker-server-new
+
 # Why?
 - I created this because of the global shortages that is happening
 - If I really want to buy an item (Specifically some tech products), they are usually not always in stock or the price is way too high, so this will help people not have to keep checking up on a item that they want because of availability or price issues. 
@@ -25,9 +28,6 @@
 
 # Websites Supported
 - Amazon
-
-# Server Repo
-- View the server repo here: https://github.com/HusamSaleem/In-stock-tracker-server-new
 
 # My Personal TODO List
 - Implement more websites like BestBuy, Newegg
