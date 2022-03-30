@@ -26,6 +26,15 @@
 # Server Repo
 - View the server repo here: https://github.com/HusamSaleem/In-stock-tracker-server-new
 
+# Getting Started
+- Download [Flutter](https://docs.flutter.dev/get-started/install)
+- [Android Studio](https://developer.android.com/studio) is recommended
+- Clone this repo
+- To build for Android, here is a good tutorial on doing so
+- To build for Web, just type in the terminal 
+```flutter build web```
+
+
 # TODO
 - Implement more websites like BestBuy, Newegg
 - Phone notifications or maybe push notifications
