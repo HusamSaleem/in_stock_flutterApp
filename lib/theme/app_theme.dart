@@ -8,7 +8,7 @@ class AppTheme {
       brightness: Brightness.dark,
       appBarTheme: AppBarTheme(
           titleSpacing: 1.0,
-          color: Colors.grey[900],
+          color: Colors.grey[850],
           iconTheme: const IconThemeData(color: Colors.white)),
       cardTheme: const CardTheme(color: Colors.black45),
       iconTheme: const IconThemeData(color: Colors.white54),

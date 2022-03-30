@@ -27,9 +27,11 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     AuthProvider auth = Provider.of<AuthProvider>(context);
+    double screenHeight = MediaQuery.of(context).size.height;
 
     final emailField = TextFormField(
       autofocus: false,
+      keyboardType: TextInputType.emailAddress,
       validator: (value) {
         if (isEmailValid(value!)) {
           return null;
@@ -37,7 +39,7 @@ class _LoginState extends State<Login> {
 
         return "Invalid email";
       },
-      onSaved: (value) => _email = value!.toLowerCase(),
+      onSaved: (value) => _email = value!.toLowerCase().trim(),
       decoration: const InputDecoration(
           icon: Icon(Icons.email),
           labelText: 'Email *',
@@ -47,7 +49,6 @@ class _LoginState extends State<Login> {
     final passwordField = TextFormField(
       autofocus: false,
       obscureText: true,
-      maxLength: 32,
       validator: (value) =>
           value!.length < 8 ? "Password must be >= 8 characters" : null,
       onSaved: (value) => _password = value!,
@@ -94,36 +95,36 @@ class _LoginState extends State<Login> {
 
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(25.0),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         child: Form(
             key: formKey,
             child: ListView(
               children: <Widget>[
-                SizedBox(height: 36.0),
+                SizedBox(height: screenHeight * 0.12),
                 Text(
                   "Welcome,",
                   style: TextStyle(
                       letterSpacing: 2,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 48),
+                      fontSize: 32),
                   textAlign: TextAlign.start,
                 ),
-                SizedBox(height: 8.0),
+                SizedBox(height: screenHeight * 0.01),
                 Text(
                   "Sign in to continue",
                   style: TextStyle(
                       letterSpacing: 2,
                       fontWeight: FontWeight.bold,
                       color: Colors.white.withOpacity(0.6),
-                      fontSize: 24),
+                      fontSize: 20),
                   textAlign: TextAlign.start,
                 ),
-                SizedBox(height: 128.0),
+                SizedBox(height: screenHeight * 0.12),
                 emailField,
-                SizedBox(height: 16.0),
+                SizedBox(height: screenHeight * 0.025),
                 passwordField,
-                SizedBox(height: 16.0),
+                SizedBox(height: screenHeight * 0.075),
                 auth.loggedInStatus == Status.Authenticating
                     ? loading
                     : ElevatedButton(
@@ -133,7 +134,8 @@ class _LoginState extends State<Login> {
                           style: const TextStyle(fontSize: 16),
                         ),
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size(0,50), // Width doesn't matter here
+                          minimumSize: Size(0, 50),
+                          // Width doesn't matter here
                           primary: Colors.blue[400],
                           elevation: 4,
                           padding: EdgeInsets.symmetric(vertical: 4.0),
@@ -142,7 +144,7 @@ class _LoginState extends State<Login> {
                           ),
                         ),
                       ),
-                SizedBox(height: 255),
+                SizedBox(height: screenHeight * 0.15),
                 TextButton(
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, "/register");

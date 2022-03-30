@@ -1,5 +1,6 @@
 class AppUrl {
-  static const String serverApi = "https://in-stock-tracker-api-new.herokuapp.com/api/v1";
+  static const String serverApi =
+      "https://in-stock-tracker-api-new.herokuapp.com/api/v1";
   static const String register = serverApi + "/user/register";
   static const String login = serverApi + "/user/login";
   static const String email = serverApi + "/user/email";

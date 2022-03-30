@@ -169,7 +169,13 @@ class _Watchlist extends State<Watchlist> {
               ),
               actions: [
                 ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Colors.green[600]),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.blue[400],
+                      elevation: 4,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
                     onPressed: () {
                       if (watchlistProvider.status == Status.Idle)
                         addNewItem();

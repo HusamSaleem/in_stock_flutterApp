@@ -25,9 +25,11 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     AuthProvider auth = Provider.of<AuthProvider>(context);
+    double screenHeight = MediaQuery.of(context).size.height;
 
     final emailField = TextFormField(
       autofocus: false,
+      keyboardType: TextInputType.emailAddress,
       validator: (value) {
         if (isEmailValid(value!)) {
           return null;
@@ -35,7 +37,7 @@ class _RegisterState extends State<Register> {
 
         return "Invalid email";
       },
-      onChanged: (value) => _email = value,
+      onChanged: (value) => _email = value.toLowerCase().trim(),
       decoration: const InputDecoration(
           icon: Icon(Icons.email),
           labelText: 'Email *',
@@ -45,7 +47,6 @@ class _RegisterState extends State<Register> {
     final passwordField = TextFormField(
       autofocus: false,
       obscureText: true,
-      maxLength: 32,
       validator: (value) =>
           value!.length < 8 ? "Password must be >= 8 characters" : null,
       onChanged: (value) => _password = value,
@@ -58,7 +59,6 @@ class _RegisterState extends State<Register> {
     final confirmPasswordField = TextFormField(
       autofocus: false,
       obscureText: true,
-      maxLength: 32,
       validator: (value) => value! != _password ? "Passwords must match" : null,
       onChanged: (value) => _confirmPassword = value,
       decoration: const InputDecoration(
@@ -101,41 +101,40 @@ class _RegisterState extends State<Register> {
       }
     };
 
-    return SafeArea(
-        child: Scaffold(
+    return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(25.0),
+        padding: EdgeInsets.symmetric(horizontal: 16),
         child: Form(
             key: formKey,
             child: ListView(
               children: <Widget>[
-                SizedBox(height: 36.0),
+                SizedBox(height: screenHeight * 0.12),
                 Text(
                   "Create Account,",
                   style: TextStyle(
                       letterSpacing: 2,
                       fontWeight: FontWeight.bold,
                       color: Colors.white,
-                      fontSize: 48),
+                      fontSize: 32),
                   textAlign: TextAlign.start,
                 ),
-                SizedBox(height: 8.0),
+                SizedBox(height: screenHeight * 0.01),
                 Text(
                   "Sign up to get started!",
                   style: TextStyle(
                       letterSpacing: 2,
                       fontWeight: FontWeight.bold,
                       color: Colors.white.withOpacity(0.6),
-                      fontSize: 24),
+                      fontSize: 20),
                   textAlign: TextAlign.start,
                 ),
-                SizedBox(height: 128.0),
+                SizedBox(height: screenHeight * .12),
                 emailField,
-                SizedBox(height: 32.0),
+                SizedBox(height: screenHeight * .025),
                 passwordField,
-                SizedBox(height: 16.0),
+                SizedBox(height: screenHeight * .025),
                 confirmPasswordField,
-                SizedBox(height: 16.0),
+                SizedBox(height: screenHeight * .075),
                 auth.registeredInStatus == Status.Registering
                     ? loading
                     : ElevatedButton(
@@ -145,7 +144,8 @@ class _RegisterState extends State<Register> {
                           style: const TextStyle(fontSize: 16),
                         ),
                         style: ElevatedButton.styleFrom(
-                          minimumSize: Size(0, 50), // Width doesn't matter here
+                          minimumSize: Size(0, 50),
+                          // Width doesn't matter here
                           primary: Colors.blue[400],
                           elevation: 4,
                           padding: EdgeInsets.symmetric(vertical: 4.0),
@@ -154,7 +154,7 @@ class _RegisterState extends State<Register> {
                           ),
                         ),
                       ),
-                SizedBox(height: 255),
+                SizedBox(height: screenHeight * .15),
                 TextButton(
                   onPressed: () {
                     Navigator.pushReplacementNamed(context, "/login");
@@ -181,6 +181,6 @@ class _RegisterState extends State<Register> {
               ],
             )),
       ),
-    ));
+    );
   }
 }
