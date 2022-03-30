@@ -1,7 +1,7 @@
 # in_stock_tracker
 
 # View this application on the web!
-- https://husamsaleem.github.io/in-stock-flutterweb/#/login
+- [It may take a bit to load because of Flutter](https://husamsaleem.github.io/in-stock-flutterweb/#/login)
 
 # Server Repo
 - View the documented server api repo here: https://github.com/HusamSaleem/In-stock-tracker-server-new
