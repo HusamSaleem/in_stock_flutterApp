@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:in_stock_tracker/pages/home.dart';
-import 'package:in_stock_tracker/pages/profile.dart';
+import 'package:in_stock_tracker/account/profile.dart';
+import 'package:in_stock_tracker/watchlist/watchlist.dart';
 
 class MainView extends StatefulWidget {
-  const MainView({Key? key}) : super(key: key);
+  MainView({Key? key}) : super(key: key);
 
   @override
   State<MainView> createState() => _MainView();
@@ -11,12 +11,20 @@ class MainView extends StatefulWidget {
 
 class _MainView extends State<MainView> {
   int index = 0;
-  final screens = [const Home(), const Profile()];
+  final screens = [const Watchlist(), const Profile()];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pushReplacementNamed(context, '/login');
+          },
+          icon: Icon(Icons.arrow_back),
+          color: Colors.red,
+          iconSize: 24,
+        ),
         elevation: 0,
         centerTitle: true,
         title: const Text(
