@@ -12,6 +12,9 @@
 - The watchlist consists of items that the user wants to know whether or not the item is in stock, and for what price
 - The user will get notified by the server via email.
 
+# Technologies used
+- Flutter, [Spring Boot for api](https://github.com/HusamSaleem/In-stock-tracker-server-new), Postgresql, Heroku for hosting
+
 # Features
 - Notifications via email (Every 5 minutes)
 - User Authentication (You can log in anywhere!)
