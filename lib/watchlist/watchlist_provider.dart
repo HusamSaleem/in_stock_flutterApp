@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
@@ -26,7 +25,7 @@ class WatchlistProvider with ChangeNotifier {
     Response response = await get(uri, headers: AppUrl.headers);
 
     // Successfully got the items
-    if (response.statusCode == HttpStatus.ok) {
+    if (response.statusCode == 200) {
       // Decode the list
       _list = (json.decode(response.body) as List)
           .map((i) => Item.fromJson(i))
@@ -52,7 +51,7 @@ class WatchlistProvider with ChangeNotifier {
     Response response = await post(uri,
         body: json.encode(item.toJson()), headers: AppUrl.headers);
 
-    if (response.statusCode == HttpStatus.ok) {
+    if (response.statusCode == 200) {
       addedItem = Item.fromJson(json.decode(response.body));
       _list.add(addedItem);
       notifyListeners();
@@ -75,7 +74,7 @@ class WatchlistProvider with ChangeNotifier {
     Response response = await delete(uri,
         body: json.encode(item.toJson()), headers: AppUrl.headers);
 
-    if (response.statusCode == HttpStatus.ok) {
+    if (response.statusCode == 200) {
       Item itemToDelete =
           _list.firstWhere((element) => element.itemId == item.itemId);
       _list.remove(itemToDelete);
@@ -102,7 +101,7 @@ class WatchlistProvider with ChangeNotifier {
           AppUrl.item + "?itemId=" + item.itemId + "&website=" + item.website);
       Response response = await get(uri, headers: AppUrl.headers);
 
-      if (response.statusCode == HttpStatus.ok) {
+      if (response.statusCode == 200) {
         Item updatedItem = Item.fromJson(json.decode(response.body));
         _list.add(updatedItem);
         notifyListeners();

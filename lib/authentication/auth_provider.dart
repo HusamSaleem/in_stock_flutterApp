@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
@@ -44,7 +43,7 @@ class AuthProvider with ChangeNotifier {
         await post(uri, body: json.encode(loginData), headers: AppUrl.headers);
 
     // Failed login
-    if (response.statusCode != HttpStatus.ok) {
+    if (response.statusCode != 200) {
       _loggedInStatus = Status.NotLoggedIn;
       notifyListeners();
       result = {'status': false, 'message': json.decode(response.body)};

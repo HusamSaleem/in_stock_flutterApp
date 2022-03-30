@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
 import 'package:in_stock_tracker/utils/app_url.dart';
@@ -15,7 +13,7 @@ class ProfileProvider with ChangeNotifier {
     Response response = await put(uri, headers: AppUrl.headers);
 
     // Successfully updated email
-    if (response.statusCode == HttpStatus.ok) {
+    if (response.statusCode == 200) {
       result = {'status': true};
     } else {
       result = {'status': false};
@@ -36,7 +34,7 @@ class ProfileProvider with ChangeNotifier {
     Response response = await put(uri, headers: AppUrl.headers);
 
     // Successfully updated email
-    if (response.statusCode == HttpStatus.ok) {
+    if (response.statusCode == 200) {
       result = {'status': true};
     } else {
       result = {'status': false};
