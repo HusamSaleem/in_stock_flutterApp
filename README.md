@@ -35,7 +35,7 @@
 
 # Prerequisites
 - Download [Flutter](https://docs.flutter.dev/get-started/install)
-- [Android Studio](https://developer.android.com/studio) *recommended*
+- [Android Studio](https://developer.android.com/studio) *recommended* or you can use VsCode
 
 # Steps (Create your own version and run on any platform!)
 - Clone this repo
