@@ -37,7 +37,7 @@ class _LoginState extends State<Login> {
 
         return "Invalid email";
       },
-      onSaved: (value) => _email = value!,
+      onSaved: (value) => _email = value!.toLowerCase(),
       decoration: const InputDecoration(
           icon: Icon(Icons.email),
           labelText: 'Email *',
