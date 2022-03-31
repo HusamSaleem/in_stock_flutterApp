@@ -2,7 +2,7 @@
 
 # View this application on the web!
 - [It may take a bit to load because of Flutter](https://husamsaleem.github.io/in-stock-flutterweb/#/login)
-- *Also, if it is taking a while to ```register/login/add items to watchlist/other```, it is because of ```Heroku```. Heroku sleeps applications (my server) that haven't been active for a while. So if this happens, just wait patiently until my server boots up again.*
+- *Also, if it is taking a while to ```register/login/other```, it is because of ```Heroku```. Heroku sleeps applications (my server) that haven't been active for a while. So if this happens, just wait patiently until my server boots up again.*
 
 # Server Repo
 - [View the documented server api repo](https://github.com/HusamSaleem/In-stock-tracker-server-new)
