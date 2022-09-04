@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "455545752969",
+    "project_id": "in-stock-tracker-59cba",
+    "storage_bucket": "in-stock-tracker-59cba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:455545752969:android:9df024020b5e22940ea558",
+        "android_client_info": {
+          "package_name": "potato.in_stock_tracker_new"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "455545752969-4rajnp4prctiogbu6650ostkj1j39877.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD28rZaZCMRj5lTmjR_ET5JImQsNllLMvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "455545752969-4rajnp4prctiogbu6650ostkj1j39877.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
