@@ -1,7 +1,7 @@
 # in_stock_tracker
 
 # View this application on the web!
-- [It may take a bit to load because of Flutter](https://husamsaleem.github.io/in-stock-flutterweb/#/login)
+- [It may take a bit to load because of Flutter](https://husamsaleem.github.io/in-stock-flutterweb/#)
 - *Also, if it is taking a while to ```register/login/other```, it is because of ```Heroku```. Heroku sleeps applications (my server) that haven't been active for a while. So if this happens, just wait patiently until my server boots up again.*
 
 # Server Repo
